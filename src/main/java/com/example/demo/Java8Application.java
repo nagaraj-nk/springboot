@@ -23,7 +23,7 @@ public class Java8Application {
         // predicate();
         // stackCollections();
         // comparable();
-        comparator();
+        // comparator();
     }
 
     private static void comparator() {
