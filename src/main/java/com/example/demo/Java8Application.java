@@ -24,6 +24,19 @@ public class Java8Application {
         // stackCollections();
         // comparable();
         // comparator();
+        lambda2();
+    }
+
+    private static void lambda2() {
+        String[] a = new String[]{"hello", "apples"};
+        Arrays.sort(a, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o2.compareTo(o1);
+            }
+        });
+
+        System.out.println(Arrays.toString(a));
     }
 
     private static void comparator() {
