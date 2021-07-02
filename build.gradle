@@ -12,19 +12,36 @@ repositories {
 	mavenCentral()
 }
 
+/*
+configurations {
+	provided
+}
+
+sourceSets {
+	main.compileClasspath += configurations.provided
+	main.runtimeClasspath += configurations.provided
+	test.compileClasspath += configurations.provided
+	test.runtimeClasspath += configurations.provided
+}
+*/
+
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation('org.springframework.boot:spring-boot-starter-web') /* {
+		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+	}*/
+	// implementation("org.springframework.boot:spring-boot-starter-jetty")
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation group: 'commons-codec', name: 'commons-codec', version: '1.5'
+	implementation('commons-configuration:commons-configuration:1.10')
 
-	// spring security
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.springframework.security:spring-security-test'
-	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt
 	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
-	// https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api
 	implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
-
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.5.1'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-batch'
+	runtimeOnly 'com.h2database:h2'
+	testImplementation 'org.springframework.batch:spring-batch-test'
 }
 
 test {
